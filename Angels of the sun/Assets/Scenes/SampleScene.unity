@@ -544,6 +544,30 @@ Transform:
   m_Father: {fileID: 780751418}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1284000360 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5131829560959226680, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
+  m_PrefabInstance: {fileID: 8584329219468901493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1284000361
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284000360}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70b74e40a613ee241a62607df9b3aa2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1353003288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1290,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 20975803826628769, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206663522215326983, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
+      propertyPath: altura_salto
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5131829560959226680, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
       propertyPath: m_Name
       value: Emma
