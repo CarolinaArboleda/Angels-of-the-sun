@@ -1296,7 +1296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4206663522215326983, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
       propertyPath: altura_salto
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5131829560959226680, guid: 59f11db7deba16a46ba972c4860262b6, type: 3}
       propertyPath: m_Name

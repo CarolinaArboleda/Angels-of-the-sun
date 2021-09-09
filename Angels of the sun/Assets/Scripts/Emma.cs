@@ -5,6 +5,7 @@ using UnityEngine;
 public class Emma : MonoBehaviour
 {
     public float altura_salto;
+    public float velocidad_movimiento;
     private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
@@ -17,14 +18,17 @@ public class Emma : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            rb.velocity = new Vector2(0, altura_salto);
+            rb.velocity = new Vector2(rb.velocity.x, altura_salto);
         }
-        float horizontal = Input.GetAxis("Horizontal");
-        //float jump = Input.GetAxis("Jump");
-        Vector2 position = transform.position;
-        position.x = position.x + 4.0f * horizontal * Time.deltaTime;
-        //position.y = position.y + 6.0f * jump * Time.deltaTime;
-        transform.position = position;
-
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.velocity = new Vector2(velocidad_movimiento, rb.velocity.y);
+            rb.transform.localScale = new Vector2(1, 1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.velocity = new Vector2(-velocidad_movimiento, rb.velocity.y);
+            rb.transform.localScale = new Vector2(-1, 1);
+        }
     }
 }
