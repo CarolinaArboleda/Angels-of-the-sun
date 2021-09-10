@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 8736143948737430446}
   - component: {fileID: 20975803826628769}
   - component: {fileID: 8574845896071570603}
+  - component: {fileID: 1284000361}
   m_Layer: 0
   m_Name: Emma
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd862112073522547b8129ce89f6a45b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  altura_salto: 10
+  velocidad_movimiento: 5
 --- !u!212 &8736143948737430446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -112,7 +115,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -144,3 +147,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8620143, y: 2.2499387}
   m_EdgeRadius: 0
+--- !u!95 &1284000361
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5131829560959226680}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 70b74e40a613ee241a62607df9b3aa2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
