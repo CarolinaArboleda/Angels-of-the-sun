@@ -10,6 +10,6 @@ public class Camara : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = new Vector3(emma.position.x + desplazamiento.x, emma.position.y + desplazamiento.y, desplazamiento.z);
+        transform.position = new Vector3(emma.position.x + desplazamiento.x, desplazamiento.y, desplazamiento.z);
     }
 }

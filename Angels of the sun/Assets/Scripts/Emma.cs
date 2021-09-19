@@ -29,7 +29,7 @@ public class Emma : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(touch_floor)
+        if (touch_floor)
         {
             anim.SetInteger("Estado", 0);
         }
@@ -37,18 +37,31 @@ public class Emma : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, altura_salto);
             touch_floor = false;
+            anim.SetInteger("Estado", 2);
+        }
+        if (Input.GetKey(KeyCode.RightArrow) && touch_floor)
+        {
+            rb.velocity = new Vector2(velocidad_movimiento, rb.velocity.y);
+            rb.transform.localScale = new Vector2(1, 1);
+            touch_floor = true;
+            anim.SetInteger("Estado", 1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && touch_floor)
+        {
+            rb.velocity = new Vector2(-velocidad_movimiento, rb.velocity.y);
+            rb.transform.localScale = new Vector2(-1, 1);
+            touch_floor = true;
+            anim.SetInteger("Estado", 1);
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             rb.velocity = new Vector2(velocidad_movimiento, rb.velocity.y);
             rb.transform.localScale = new Vector2(1, 1);
-            anim.SetInteger("Estado", 1);
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             rb.velocity = new Vector2(-velocidad_movimiento, rb.velocity.y);
             rb.transform.localScale = new Vector2(-1, 1);
-            anim.SetInteger("Estado", 1);
         }
     }
 }
