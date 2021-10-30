@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class pajaro : MonoBehaviour
 {
-    public GameObject pajarito;
     public GameObject target;
-    public Transform posicion_inicial;
-    public Transform posicion_final;
-    private Transform posicion_siguiente;
-    public float velocidad;
+
+    public float speed = 2.5f;
+    public float changeTime = 3.0f;
+
+    Rigidbody2D rigidbody2D;
+    float timer;
+    int direction = 1;
+
+    Transform myTransform;
+
+    void Awake()
+    {
+        myTransform = transform;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        posicion_siguiente = posicion_final;
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        timer = changeTime;
 
     }
 
@@ -29,11 +39,30 @@ public class pajaro : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        pajarito.transform.position = Vector2.MoveTowards(pajarito.transform.position, posicion_siguiente.position, Time.deltaTime * velocidad);
-
-        if (pajarito.transform.position == posicion_siguiente.position)
+        timer -= Time.deltaTime;
+        if (timer < 0)
         {
-            posicion_siguiente = posicion_siguiente == posicion_final ? posicion_inicial : posicion_final;
+            direction = -direction;
+            timer = changeTime;
         }
+    }
+
+    void FixedUpdate()
+    {
+        if (direction == -1)
+        {
+            rigidbody2D.transform.localScale = new Vector2(1, 1);
+        }
+
+        if (direction == 1)
+        {
+            rigidbody2D.transform.localScale = new Vector2(-1, 1);
+        }
+
+        Vector2 position = rigidbody2D.position;
+
+        position.x = position.x + Time.deltaTime * speed * direction; ;
+
+        rigidbody2D.MovePosition(position);
     }
 }
