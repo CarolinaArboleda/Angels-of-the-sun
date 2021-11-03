@@ -9,12 +9,20 @@ public class Emma : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool touch_floor;
+    private int vidas = 3;
+
+    //asigna o retorna las vidas del personaje
+    public int Vidas { get => vidas; set => vidas = value; }
+
+    private Animator barra_anim;
+    public GameObject barra_vida;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        barra_anim = barra_vida.GetComponent<Animator>();
         anim.SetInteger("Estado", 0);
     }
 
@@ -63,6 +71,26 @@ public class Emma : MonoBehaviour
         {
             rb.velocity = new Vector2(-velocidad_movimiento, rb.velocity.y);
             rb.transform.localScale = new Vector2(-1, 1);
+        }
+
+    }
+
+    //perder vidas si colisiona con objetos de daño
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("daño"))
+        {
+            vidas--;
+            if (vidas > 0)
+            {
+                Debug.Log(Vidas + "/3");
+            }
+            else
+            {
+                Debug.Log("Se murió emma");
+            }
+
+            barra_anim.SetInteger("vidas", vidas);
         }
     }
 }

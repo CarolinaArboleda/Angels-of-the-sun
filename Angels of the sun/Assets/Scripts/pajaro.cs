@@ -13,6 +13,10 @@ public class pajaro : MonoBehaviour
     float timer;
     int direction = 1;
 
+    private int vidas = 3;
+    //asigna o retorna las vidas del personaje
+    public int Vidas { get => vidas; set => vidas = value; }
+
     Transform myTransform;
 
     void Awake()
@@ -32,7 +36,15 @@ public class pajaro : MonoBehaviour
     {
         if (other.gameObject.tag.Equals("Player"))
         {
-            other.transform.position = target.transform.position;
+            vidas--;
+            if (vidas > 0)
+            {
+                other.transform.position = target.transform.position;
+            }
+            else
+            {
+                Debug.Log("Se murió emma");
+            }
         }
     }
 
