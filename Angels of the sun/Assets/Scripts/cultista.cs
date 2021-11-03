@@ -5,6 +5,8 @@ using UnityEngine;
 public class cultista : MonoBehaviour
 {
 
+    public GameObject target;
+
     public float speed = 2.5f;
     public float changeTime = 3.0f;
 
@@ -24,6 +26,14 @@ public class cultista : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag.Equals("Player"))
+        {
+            other.transform.position = target.transform.position;
+        }
     }
 
     // Update is called once per frame

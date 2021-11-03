@@ -9,6 +9,7 @@ public class Emma : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private bool touch_floor;
+
     // Start is called before the first frame update
     void Start()
     {
