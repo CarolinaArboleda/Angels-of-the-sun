@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4338107128425364727}
   m_Layer: 0
   m_Name: spike_0
-  m_TagString: Untagged
+  m_TagString: "da\xF1o"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingOrder: 1
   m_Sprite: {fileID: -1929834416523346238, guid: b6b7254663c2a7e41a8b90a953a728fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.75, y: 0.4}
@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}

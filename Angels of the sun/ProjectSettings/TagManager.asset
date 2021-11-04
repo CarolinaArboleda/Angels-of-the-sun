@@ -7,6 +7,8 @@ TagManager:
   - Floor
   - Collectible
   - "da\xF1o"
+  - moneda
+  - proyectil
   layers:
   - Default
   - TransparentFX

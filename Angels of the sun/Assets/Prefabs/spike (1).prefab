@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5044163237768259169}
   - component: {fileID: 5044163237768259168}
   - component: {fileID: 5044163237768259175}
+  - component: {fileID: -2988108019716052867}
   m_Layer: 0
   m_Name: spike (1)
   m_TagString: "da\xF1o"
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_UsedByComposite: 1
   m_Offset: {x: 0.0112400055, y: -0.012488246}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0.1, z: 0, w: 0}
@@ -109,3 +110,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.72752, y: 0.41017985}
   m_EdgeRadius: 0
+--- !u!114 &-2988108019716052867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044163237768259174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de4f7a4bae953524d979a93f3d87b074, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 7697883866911806511, guid: 0e203fb82f903794c87b6f6c5dedd6b2, type: 3}

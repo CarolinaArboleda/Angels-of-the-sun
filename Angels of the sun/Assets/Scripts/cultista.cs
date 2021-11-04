@@ -6,6 +6,7 @@ public class cultista : MonoBehaviour
 {
 
     public GameObject target;
+    public GameObject priest;
 
     public float speed = 2.5f;
     public float changeTime = 3.0f;
@@ -13,6 +14,7 @@ public class cultista : MonoBehaviour
     Rigidbody2D rigidbody2D;
     float timer;
     int direction = 1;
+    private int vidamax = 30;
 
     Transform myTransform;
 
@@ -33,6 +35,15 @@ public class cultista : MonoBehaviour
         if (other.gameObject.tag.Equals("Player"))
         {
             other.transform.position = target.transform.position;
+        }
+
+        if (other.gameObject.tag.Equals("proyectil"))
+        {
+            vidamax -= 12;
+            if (vidamax <= 0)
+            {
+                priest.SetActive(false);
+            }
         }
     }
 

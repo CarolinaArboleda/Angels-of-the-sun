@@ -8,7 +8,6 @@ public class Coin : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Emma controller = other.GetComponent<Emma>();
-        Debug.Log("Object that entered the trigger : " + other);
         if (controller != null)
         {
             Destroy(gameObject);

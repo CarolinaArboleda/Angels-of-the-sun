@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Emma : MonoBehaviour
 {
@@ -13,9 +14,16 @@ public class Emma : MonoBehaviour
 
     //asigna o retorna las vidas del personaje
     public int Vidas { get => vidas; set => vidas = value; }
+    public int Puntos { get => puntos; set => puntos = value; }
 
     private Animator barra_anim;
     public GameObject barra_vida;
+
+    private int puntos = 0;
+    private int valor_punto = 15;
+
+    public GameObject projectilePrefab;
+    Vector2 lookDirection = new Vector2(1, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -34,10 +42,38 @@ public class Emma : MonoBehaviour
         }
         else touch_floor = false;
 
+        if (c.gameObject.tag.Equals("daño"))
+        {
+            vidas--;
+            if (vidas > 0)
+            {
+                Debug.Log(Vidas + "/3");
+            }
+            else
+            {
+                Debug.Log("Se murió emma");
+            }
+
+            barra_anim.SetInteger("vidas", vidas);
+        }
+
     }
     // Update is called once per frame
     void Update()
     {
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector2 move = new Vector2(horizontal, vertical);
+
+        if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+        {
+            lookDirection.Set(move.x, move.y);
+            lookDirection.Normalize();
+            anim.SetInteger("Estado", 0);
+        }
+
         if (touch_floor)
         {
             anim.SetInteger("Estado", 0);
@@ -73,6 +109,20 @@ public class Emma : MonoBehaviour
             rb.transform.localScale = new Vector2(-1, 1);
         }
 
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Launch();
+        }
+
+    }
+
+    void Launch()
+    {
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
+
+        Proyectil projectile = projectileObject.GetComponent<Proyectil>();
+        projectile.Launch(lookDirection, 800);
+
     }
 
     //perder vidas si colisiona con objetos de daño
@@ -87,10 +137,19 @@ public class Emma : MonoBehaviour
             }
             else
             {
+                SceneManager.LoadScene("gameover");
                 Debug.Log("Se murió emma");
             }
-
+            anim.SetInteger("Estado", 0);
             barra_anim.SetInteger("vidas", vidas);
         }
+
+        //monedas
+
+        if (other.gameObject.tag.Equals("moneda"))
+        {
+            puntos+=valor_punto;
+        }
     }
+
 }

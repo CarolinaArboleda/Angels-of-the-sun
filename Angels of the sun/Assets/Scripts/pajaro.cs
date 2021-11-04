@@ -5,6 +5,7 @@ using UnityEngine;
 public class pajaro : MonoBehaviour
 {
     public GameObject target;
+    public GameObject pajarito;
 
     public float speed = 2.5f;
     public float changeTime = 3.0f;
@@ -12,6 +13,8 @@ public class pajaro : MonoBehaviour
     Rigidbody2D rigidbody2D;
     float timer;
     int direction = 1;
+
+    private int vidamax = 30;
 
     private int vidas = 3;
     //asigna o retorna las vidas del personaje
@@ -44,6 +47,15 @@ public class pajaro : MonoBehaviour
             else
             {
                 Debug.Log("Se murió emma");
+            }
+        }
+
+        if (other.gameObject.tag.Equals("proyectil"))
+        {
+            vidamax -= 12;
+            if (vidamax <= 0)
+            {
+                pajarito.SetActive(false);
             }
         }
     }
